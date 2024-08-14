@@ -3,10 +3,12 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev:extension": "nodemon",
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "astro check && cross-env EXCLUDE_DIR=v3  astro build --outDir dist/v2 && cross-env EXCLUDE_DIR=v2  astro build --outDir dist/v3",
+    "buildV2": "astro check && cross-env EXCLUDE_DIR=v3  astro build --outDir dist/v2",
+    "buildV3": "astro check && cross-env EXCLUDE_DIR=v2  astro build --outDir dist/v3",
+    "build:reload": "nodemon",
     "preview": "astro preview",
     "astro": "astro"
   },
