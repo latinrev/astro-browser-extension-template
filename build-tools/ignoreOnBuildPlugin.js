@@ -1,7 +1,29 @@
 import path from "path";
 import fs from "fs-extra";
 
-export function ignorePublicFolders() {
+export default function ignoreFolders() {
+  return {
+    name: "ignore-on-public",
+    hooks: {
+      "astro:config:setup": ({ updateConfig, command }) => {
+        if (command === "build") {
+          updateConfig({
+            /** @type {import('vite').UserConfig} */
+            vite: {
+              server: {
+                ws: false,
+                watch: null,
+              },
+              plugins: [ignorePublicFolders(), flattenBuildFolder()],
+            },
+          });
+        }
+      },
+    },
+  };
+}
+
+function ignorePublicFolders() {
   return {
     name: "ignore-on-public",
     enforce: "pre",
@@ -12,7 +34,7 @@ export function ignorePublicFolders() {
     },
   };
 }
-export function flattenBuildFolder() {
+function flattenBuildFolder() {
   return {
     name: "flatten-on-build",
     async writeBundle(outputOptions) {
