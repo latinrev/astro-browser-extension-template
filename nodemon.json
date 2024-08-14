@@ -1,6 +1,6 @@
 {
   "watch": ["."],
   "ext": "astro,ts,tsx,js,jsx,json",
-  "exec": "node multi-build.js",
+  "exec": "node build-tools/multi-build.js",
   "ignore": ["dist"]
 }

@@ -1,5 +1,5 @@
 import { defineConfig } from "astro/config";
-import { ignorePublicFolders, flattenBuildFolder } from "./ignoreOnBuildPlugin";
+import { ignorePublicFolders, flattenBuildFolder } from "./build-tools/ignoreOnBuildPlugin";
 
 const ignoreFolders = () => {
   return {
