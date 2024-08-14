@@ -22,20 +22,16 @@ export function flattenBuildFolder() {
       const browserFolders = ["v3", "v2"].filter((folder) => folder !== process.env.EXCLUDE_DIR);
 
       for (const browser of browserFolders) {
-        const browserPath = path.join(outDir);
-
         // Check if the browser folder exists
-        if (!(await fs.pathExists(browserPath))) continue;
+        if (!(await fs.pathExists(outDir))) continue;
 
         // Find the nested folder with the same name
-        if (await fs.pathExists(browserPath)) {
-          // Move contents of nested folder to parent
-          const files = await fs.readdir(`${browserPath}/${browser}`);
+        if (await fs.pathExists(outDir)) {
+          // Move contents of nested folder to parent3
+          const files = await fs.readdir(`${outDir}/${browser}`);
           for (const file of files) {
-            await fs.move(path.join(browserPath, browser, file), path.join(outDir, file), { overwrite: true });
+            await fs.move(path.join(outDir, browser, file), path.join(outDir, file), { overwrite: true });
           }
-          // Remove the now empty nested folder
-          await fs.remove(`${browserPath}/${browser}`);
         }
       }
     },

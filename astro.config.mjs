@@ -1,5 +1,6 @@
 import { defineConfig } from "astro/config";
 import { ignorePublicFolders, flattenBuildFolder } from "./build-tools/ignoreOnBuildPlugin";
+import extractInlineIntegration from "./build-tools/extract-inline";
 
 const ignoreFolders = () => {
   return {
@@ -10,7 +11,10 @@ const ignoreFolders = () => {
           updateConfig({
             /** @type {import('vite').UserConfig} */
             vite: {
-              server: { ws: false, watch: null },
+              server: {
+                ws: false,
+                watch: null,
+              },
               plugins: [ignorePublicFolders(), flattenBuildFolder()],
             },
           });
@@ -22,6 +26,9 @@ const ignoreFolders = () => {
 
 // https://astro.build/config
 export default defineConfig({
-  build: { format: "file" },
-  integrations: [ignoreFolders()],
+  build: {
+    inlineStylesheets: "never",
+    format: "file",
+  },
+  integrations: [ignoreFolders(), extractInlineIntegration()],
 });
