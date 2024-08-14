@@ -41,11 +41,9 @@ Start the hot reload
 - Parallel builds for ManifestV2 and ManifestV3
 - Unified UI for ManifestV2 and ManifestV3
 
-
-
 ## Authors
-
-- [@latinrev](https://www.github.com/latinrev)
+> Easter egg, Hola Midu!
+- [@latinrev (Joel Castillo)](https://www.github.com/latinrev)
 
 
 ## Contributing
