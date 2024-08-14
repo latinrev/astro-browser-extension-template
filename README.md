@@ -39,6 +39,7 @@ Start the hot reload
 ## Features
 - Hot reload for dist folder
 - Parallel builds for ManifestV2 and ManifestV3
+- Unified UI for ManifestV2 and ManifestV3
 
 
 
