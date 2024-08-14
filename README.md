@@ -25,7 +25,7 @@ Clone the project
 Go to the project directory
 
 ```bash
-  cd astro-firefox-extension-template
+  cd astro-browser-extension-template
 ```
 
 Install dependencies
