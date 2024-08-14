@@ -31,7 +31,7 @@ Install dependencies
 ```
 
 Start the hot reload
-> Once the project is up and running you will see your build results inside dist/v2 dist/v3
+> Once the project is up and running you will see your build results inside dist/v2 dist/v3 which then in turn you can point your browsers to these directories
 ```bash
   npm run dev:extension
 ```
