@@ -1,5 +1,5 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "My App",
   "version": "1.0",
   "description": "Your extension description",
@@ -8,10 +8,11 @@
   },
   "permissions": ["activeTab"],
   "background": {
-    "scripts": ["background.js"],
-    "persistent": false
+    "service_worker": "background.js",
+    "type": "module"
   },
-  "browser_action": {
-    "default_popup": "dist/index.html"
+
+  "action": {
+    "default_popup": "index.html"
   }
 }

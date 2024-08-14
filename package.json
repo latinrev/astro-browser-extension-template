@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev:extension": "nodemon --watch src --ext astro,ts,tsx,js,jsx,json --exec astro build",
+    "dev:extension": "nodemon",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
@@ -11,8 +11,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.13.3",
     "@astrojs/check": "^0.9.2",
+    "astro": "^4.13.3",
     "typescript": "^5.5.4"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "fs-extra": "^11.2.0"
   }
 }
